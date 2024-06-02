@@ -9,7 +9,6 @@ results_of_experiments: dict = {
     'model': [],
     'prompt': [],
     'step': [],
-    'guidance': [],
     'average_inference_time': [],
     'average_gpu_utilization': [],
     'average_memory_utilization': [],
@@ -57,8 +56,7 @@ def analyze_csv_file(file_path):
 
     results_of_experiments['model'].append(filename.split('_')[0])
     results_of_experiments['prompt'].append(filename.split('_')[1])
-    results_of_experiments['step'].append(filename.split('_')[2].split('-')[1])
-    results_of_experiments['guidance'].append(filename.split('_')[3].split('-')[1].split('.')[0])
+    results_of_experiments['step'].append(filename.split('_')[2].split('-')[1].split('.')[0])
     results_of_experiments['average_inference_time'].append(round(average_inference_time, 4))
     results_of_experiments['average_gpu_utilization'].append(round(average_gpu_utilization, 2))
     results_of_experiments['average_memory_utilization'].append(round(average_memory_utilization, 2))
@@ -78,7 +76,7 @@ def analyze_directory(directory_path):
         analyze_csv_file(file_path)
 
 
-analyze_directory(SAVE_LOCATION_PREFIX)
+analyze_directory("/media/kwoj/borrowed/Projekt_Uczenie_Maszyn/partial_csvs")
 results = pd.DataFrame(results_of_experiments)
 csv_path = Path(f'STABLE_DIFFUSION_RESULTS.csv')
 results.to_csv(csv_path, index=False)
