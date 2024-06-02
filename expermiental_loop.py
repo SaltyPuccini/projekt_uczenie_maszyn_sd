@@ -4,13 +4,13 @@ import torch
 from diffusers import AutoPipelineForText2Image
 import pandas as pd
 
-from CPU_utils import get_cpu_metrics
-from GPU_utils import get_gpu_metrics, initialize_correct_pynvml_device, clear_gpu_cache
+from utils.CPU_utils import get_cpu_metrics
+from utils.GPU_utils import get_gpu_metrics, initialize_correct_pynvml_device, clear_gpu_cache
 import gc
 import time
-from experiment_utils import WARM_UP_ITERATIONS, EXPERIMENT_ITERATIONS, models_dict, prompts_dict, PROMPT_PREFIX, \
+from utils.experiment_utils import WARM_UP_ITERATIONS, EXPERIMENT_ITERATIONS, models_dict, prompts_dict, PROMPT_PREFIX, \
     SAVE_LOCATION_PREFIX, inference_steps, WARM_UP_STEPS, GUIDANCE_SCALE, WARM_UP_PROMPT
-from logger import logger
+from utils.logger import logger
 
 # Initialize nvml gpu measurement
 handle = initialize_correct_pynvml_device()

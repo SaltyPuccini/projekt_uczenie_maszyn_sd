@@ -3,8 +3,6 @@ from pathlib import Path
 
 import pandas as pd
 
-from experiment_utils import SAVE_LOCATION_PREFIX
-
 results_of_experiments: dict = {
     'model': [],
     'prompt': [],
@@ -68,7 +66,7 @@ def analyze_csv_file(file_path):
 
 def analyze_directory(directory_path):
     # List all CSV files in the directory
-    files = [f for f in os.listdir(directory_path) if f.endswith('.csv')]
+    files = [f for f in os.listdir(directory_path) if f.endswith('.results')]
 
     # Iterate over each file and analyze
     for file_name in files:
@@ -78,5 +76,5 @@ def analyze_directory(directory_path):
 
 analyze_directory("/media/kwoj/borrowed/Projekt_Uczenie_Maszyn/partial_csvs")
 results = pd.DataFrame(results_of_experiments)
-csv_path = Path(f'STABLE_DIFFUSION_RESULTS.csv')
+csv_path = Path(f'STABLE_DIFFUSION_RESULTS.results')
 results.to_csv(csv_path, index=False)
