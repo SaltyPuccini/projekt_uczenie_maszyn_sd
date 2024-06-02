@@ -80,6 +80,5 @@ def analyze_directory(directory_path):
 
 analyze_directory(SAVE_LOCATION_PREFIX)
 results = pd.DataFrame(results_of_experiments)
-csv_path = Path(SAVE_LOCATION_PREFIX,
-                f'STABLE_DIFFUSION_RESULTS.csv')
+csv_path = Path(f'STABLE_DIFFUSION_RESULTS.csv')
 results.to_csv(csv_path, index=False)

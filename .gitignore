@@ -1,3 +1,4 @@
 .idea
 __pycache__/
 sdxl_inference.py
+*.csv
