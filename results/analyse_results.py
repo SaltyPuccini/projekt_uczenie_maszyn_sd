@@ -66,7 +66,7 @@ def analyze_csv_file(file_path):
 
 def analyze_directory(directory_path):
     # List all CSV files in the directory
-    files = [f for f in os.listdir(directory_path) if f.endswith('.results')]
+    files = [f for f in os.listdir(directory_path) if f.endswith('.csv')]
 
     # Iterate over each file and analyze
     for file_name in files:
@@ -76,5 +76,5 @@ def analyze_directory(directory_path):
 
 analyze_directory("/media/kwoj/borrowed/Projekt_Uczenie_Maszyn/partial_csvs")
 results = pd.DataFrame(results_of_experiments)
-csv_path = Path(f'STABLE_DIFFUSION_RESULTS.results')
+csv_path = Path(f'STABLE_DIFFUSION_RESULTS.csv')
 results.to_csv(csv_path, index=False)

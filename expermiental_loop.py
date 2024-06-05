@@ -21,7 +21,7 @@ for model_info in models_dict.items():
     # Initialize text2img pipeline for selected model
     pipe = AutoPipelineForText2Image.from_pretrained(model_info[1], torch_dtype=torch.float16,
                                                      variant="fp16")
-    if model_info[0] == "sdxl-turbo":
+    if model_info[0] == "sdxl-turbo" or model_info[0] == "sdxl-base":
         pipe.enable_model_cpu_offload()
     else:
         pipe.to('cuda')

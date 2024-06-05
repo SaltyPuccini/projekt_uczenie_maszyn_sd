@@ -5,11 +5,15 @@ SAVE_LOCATION_PREFIX = pathlib.Path("/media/kwoj/borrowed/Projekt_Uczenie_Maszyn
 GUIDANCE_SCALE = 0.0
 WARM_UP_ITERATIONS = 10
 WARM_UP_STEPS = 5
-EXPERIMENT_ITERATIONS = 10
+EXPERIMENT_ITERATIONS = 100
 
 models_dict = {
     "sdxl-turbo": "stabilityai/sdxl-turbo",
     "sd-2-1": "stabilityai/stable-diffusion-2-1",
+    "sd-turbo": "stabilityai/sd-turbo",
+    "sdxl-base": "stabilityai/stable-diffusion-xl-base-1.0",
+    "sd-2-1-base": "stabilityai/stable-diffusion-2-1-base",
+
 }
 prompts_dict = {
     "forest-village": "quaint, bustling village nestled in a lush forest.",
@@ -27,4 +31,4 @@ PROMPT_PREFIX = ("Generate a top-down view of a location in a Japanese Role-Play
 
 WARM_UP_PROMPT = PROMPT_PREFIX + prompts_dict["forest-village"]
 
-inference_steps = [1, 5, 10, 20, 50, 100]
+inference_steps = [1, 5, 10, 20, 50, 100, 150]
