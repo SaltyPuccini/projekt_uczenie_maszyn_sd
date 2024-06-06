@@ -19,30 +19,23 @@ results_of_experiments: dict = {
 
 def analyze_csv_file(file_path):
     global results_of_experiments
-    # Load metrics from CSV
     df_metrics = pd.read_csv(file_path)
     filename = file_path.split('/')[-1]
 
-    # Basic statistics
     print(f"{filename}:")
 
-    # Example analysis: average inference time
     average_inference_time = df_metrics['inference_time'].mean()
     print(f"Average inference time: {average_inference_time:.4f} seconds")
 
-    # GPU utilization analysis
     average_gpu_utilization = df_metrics['gpu_utilization'].mean()
     print(f"Average GPU utilization: {average_gpu_utilization:.2f}%")
 
-    # Memory utilization analysis
     average_memory_utilization = df_metrics['memory_utilization'].mean()
     print(f"Average memory utilization: {average_memory_utilization:.2f}%")
 
-    # CPU utilization analysis
     average_cpu_percent = df_metrics['cpu_percent'].mean()
     print(f"Average CPU utilization: {average_cpu_percent:.2f}%")
 
-    # CPU user, system, and idle time analysis
     average_cpu_user = df_metrics['cpu_user'].mean()
     average_cpu_system = df_metrics['cpu_system'].mean()
     average_cpu_idle = df_metrics['cpu_idle'].mean()
@@ -65,10 +58,8 @@ def analyze_csv_file(file_path):
 
 
 def analyze_directory(directory_path):
-    # List all CSV files in the directory
     files = [f for f in os.listdir(directory_path) if f.endswith('.csv')]
 
-    # Iterate over each file and analyze
     for file_name in files:
         file_path = os.path.join(directory_path, file_name)
         analyze_csv_file(file_path)

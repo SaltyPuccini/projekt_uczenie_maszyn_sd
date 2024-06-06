@@ -24,15 +24,9 @@ def clear_gpu_cache() -> None:
 
 
 def get_nvml_gpu_id(torch_gpu_id: int) -> int:
-    """
-    Remap torch device id to nvml device id, respecting CUDA_VISIBLE_DEVICES.
-
-    If the latter isn't set return the same id
-    """
-    # if CUDA_VISIBLE_DEVICES is used automagically remap the id since pynvml ignores this env var
     if "CUDA_VISIBLE_DEVICES" in os.environ:
         ids = list(map(int, os.environ.get("CUDA_VISIBLE_DEVICES", "").split(",")))
-        return ids[torch_gpu_id]  # remap
+        return ids[torch_gpu_id]
     else:
         return torch_gpu_id
 

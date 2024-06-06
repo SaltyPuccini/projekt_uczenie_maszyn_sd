@@ -16,7 +16,6 @@ dataset = {
 for image_path in data_path.glob('*.png'):
     raw_image = Image.open(image_path).convert('RGB')
 
-    # conditional image captioning
     text = "A top-down tile-based view in a pixel art style depicting a "
     inputs = processor(raw_image, text, return_tensors="pt").to("cuda")
     out = model.generate(**inputs, max_length=100)
@@ -27,7 +26,6 @@ for image_path in data_path.glob('*.png'):
 
     json_file_path = 'dnd_scrapped_maps_dataset.json'
 
-    # Save the dictionary as a JSON file
     with open(json_file_path, 'w') as json_file:
         json.dump(dataset, json_file, indent=4)
 

@@ -1,11 +1,11 @@
 import pathlib
 
-SAVE_LOCATION_PREFIX = pathlib.Path("/media/kwoj/borrowed/Projekt_Uczenie_Maszyn")
+SAVE_LOCATION_PREFIX = pathlib.Path("/media/user/borrowed/Projekt_Uczenie_Maszyn")
 
 GUIDANCE_SCALE = 0.0
 WARM_UP_ITERATIONS = 10
 WARM_UP_STEPS = 5
-EXPERIMENT_ITERATIONS = 100
+EXPERIMENT_ITERATIONS = 10
 
 models_dict = {
     "sdxl-turbo": "stabilityai/sdxl-turbo",
