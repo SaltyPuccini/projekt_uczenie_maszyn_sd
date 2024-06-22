@@ -3,7 +3,7 @@ import torch
 import gc
 
 pipe = AutoPipelineForText2Image.from_pretrained("stabilityai/sd-turbo", torch_dtype=torch.float16, variant="fp16")
-pipe.to_cuda()
+pipe.to('cuda')
 prompt = ("A pixel art illustration showcasing the top view of a fantasy game town, featuring vibrant colors, intricate details and medieval vibes")
 
 
